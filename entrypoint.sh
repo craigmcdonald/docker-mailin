@@ -47,7 +47,7 @@ echo "Adding github deploy key"
 if [ -n "${DEPLOY_KEY}" ]; then
    if [ ! -f /root/.ssh/deploy_key ]; then
       mkdir -p /root/.ssh
-      cat ${DEPLOY_KEY} /root/.ssh/deploy_key
+      echo ${DEPLOY_KEY} >> /root/.ssh/deploy_key
       cat << ENDHERE >> /root/.ssh/config
 Host *
   IdentityFile /root/.ssh/deploy_key
