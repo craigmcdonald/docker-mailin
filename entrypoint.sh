@@ -40,12 +40,14 @@ fi
 if [ -n "${GITHUB_DEPLOY_KEY}" ]; then
    DEPLOY_KEY=$GITHUB_DEPLOY_KEY
 fi
+
+echo "Adding github deploy key"
 # If we are given a DEPLOY_KEY, copy it into /root/.ssh and
 # setup a github rule to use it
 if [ -n "${DEPLOY_KEY}" ]; then
    if [ ! -f /root/.ssh/deploy_key ]; then
       mkdir -p /root/.ssh
-      cp ${DEPLOY_KEY} /root/.ssh/deploy_key
+      cat ${DEPLOY_KEY} /root/.ssh/deploy_key
       cat << ENDHERE >> /root/.ssh/config
 Host *
   IdentityFile /root/.ssh/deploy_key
