@@ -48,6 +48,7 @@ if [ -n "${DEPLOY_KEY}" ]; then
    if [ ! -f /root/.ssh/deploy_key ]; then
       mkdir -p /root/.ssh
       echo ${DEPLOY_KEY} >> /root/.ssh/deploy_key
+      chmod 600 /root/.ssh/id_rsa
       cat << ENDHERE >> /root/.ssh/config
 Host *
   IdentityFile /root/.ssh/deploy_key
