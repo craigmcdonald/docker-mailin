@@ -14,10 +14,11 @@ export MONGO_URL
 export PORT
 export EMAIL_PORT
 
-
 # Configure and start Spamassassin
 
 echo "Configuring spamassassin"
+
+service rsyslog restart
 
 perl -pi -e 's/ENABLED=0/ENABLED=1/g' /etc/default/spamassassin
 

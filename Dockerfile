@@ -7,7 +7,7 @@ RUN ln -s $(which nodejs) /usr/bin/node
 
 RUN apt-get install -y spamassassin spamc
 
-RUn apt-get install -y rsyslogd
+RUn apt-get install -y rsyslog
 
 # Install git, curl, python, and phantomjs
 RUN apt-get install -y git curl python phantomjs
